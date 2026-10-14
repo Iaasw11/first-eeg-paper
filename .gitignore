@@ -1,0 +1,36 @@
+# Data and large artifacts
+data/
+datasets/
+checkpoints/
+artifacts/
+
+# Model weights
+*.pt
+*.pth
+*.ckpt
+*.onnx
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+
+# Secrets
+.env
+*.env
