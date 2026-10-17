@@ -17,17 +17,36 @@
 4. 创赛材料中的技术构想或数字不视为科研证据；论文结论必须来自可复现实验。
 5. 当前优先级：快速形成首篇可投稿稿件，为 2028 考研复试积累真实科研能力证明。
 
+## 知识分层
+
+```text
+零基础层
+↓
+MI 基础层
+↓
+算法层
+↓
+论文研究层
+```
+
+当前原则：**先搞懂数据，再搞懂训练，再进入模型。**
+
 ## 目录
 
+- `00_project_management/` 项目管理、零基础科研/深度学习前置知识、学习路线
 - `01_literature/` 文献矩阵、核心论文、阅读笔记
 - `02_dataset/` 数据集说明、下载方式、预处理记录（不直接提交大体积原始数据）
 - `03_baselines/` Baseline 代码与复现结果
 - `04_our_method/` 我们的方法与设计记录
 - `05_experiments/` 实验配置、日志、实验登记、失败实验
 - `06_results/` 结果表、统计分析
-- `07_figures/` 论文图表与生成脚本
+- `07_figures/` 论文正式图表与生成脚本
 - `08_paper/` 论文大纲、草稿、修改记录
 - `09_thesis_reuse/` 未来本科毕业论文可复用内容与系统扩展设想
+
+### 零基础入口
+
+从 [`00_project_management/beginner_prerequisites.md`](00_project_management/beginner_prerequisites.md) 开始，先建立 Dataset / Sample / Label / Batch / Epoch / Loss 以及 MI-EEG 数据流的基础框架。
 
 ## 当前阶段
 
