@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+<style>
+text{font-family:Arial,'Noto Sans CJK SC','Microsoft YaHei',sans-serif;fill:#163a63}.title{font-size:44px;font-weight:700}.h{font-size:28px;font-weight:700}.b{font-size:22px}.s{font-size:18px}.box{rx:22;ry:22;stroke-width:3}.arr{stroke:#2e7bcf;stroke-width:5;fill:none;marker-end:url(#a)}
+</style>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2e7bcf"/></marker></defs>
+<rect width="1600" height="1000" fill="#fff"/>
+<text x="800" y="65" text-anchor="middle" class="title">EEG 数据层级（直观示意图）</text>
+<rect x="330" y="105" width="940" height="100" class="box" fill="#e8f3fd" stroke="#79b8ee"/><text x="800" y="165" text-anchor="middle" class="h">Experiment（一次完整实验）</text>
+<path d="M800 205 L800 245" class="arr"/><text x="830" y="235" class="s">包含多个被试</text>
+<rect x="180" y="255" width="1240" height="140" class="box" fill="#e6f7f1" stroke="#6cc7ad"/>
+<text x="320" y="315" text-anchor="middle" class="h">Subject 1</text><text x="320" y="350" text-anchor="middle" class="b">（被试）</text>
+<text x="650" y="315" text-anchor="middle" class="h">Subject 2</text><text x="650" y="350" text-anchor="middle" class="b">（被试）</text>
+<text x="800" y="325" text-anchor="middle" class="h">…</text>
+<text x="1130" y="315" text-anchor="middle" class="h">Subject N</text><text x="1130" y="350" text-anchor="middle" class="b">（被试）</text>
+<path d="M800 395 L800 440" class="arr"/><text x="830" y="430" class="s">每位被试包含多个 Trial</text>
+<rect x="130" y="450" width="1340" height="135" class="box" fill="#fff4dc" stroke="#e6b04a"/>
+<g class="b"><text x="300" y="515" text-anchor="middle">Trial 1（一次试次）</text><text x="620" y="515" text-anchor="middle">Trial 2（一次试次）</text><text x="800" y="515" text-anchor="middle">…</text><text x="1150" y="515" text-anchor="middle">Trial T（一次试次）</text></g>
+<path d="M800 585 L800 625" class="arr"/><text x="830" y="615" class="s">从 Trial 对应 EEG 中截取时间窗</text>
+<rect x="320" y="635" width="960" height="100" class="box" fill="#eee9ff" stroke="#9c8fe5"/><text x="800" y="695" text-anchor="middle" class="h">Epoch（截取的 EEG 时间片段）</text>
+<path d="M800 735 L800 775" class="arr"/><text x="830" y="765" class="s">每个 Epoch 包含多个通道</text>
+<rect x="120" y="785" width="1360" height="105" class="box" fill="#eaf5fd" stroke="#7fbce7"/>
+<g class="b"><text x="320" y="850" text-anchor="middle">Channel 1</text><text x="680" y="850" text-anchor="middle">Channel 2</text><text x="800" y="850" text-anchor="middle">…</text><text x="1160" y="850" text-anchor="middle">Channel C</text></g>
+<path d="M320 890 L320 925" class="arr"/><path d="M680 890 L680 925" class="arr"/><path d="M1160 890 L1160 925" class="arr"/>
+<g class="s"><text x="320" y="960" text-anchor="middle">Time Samples（时间采样点）</text><text x="680" y="960" text-anchor="middle">Time Samples（时间采样点）</text><text x="1160" y="960" text-anchor="middle">Time Samples（时间采样点）</text></g>
+</svg>

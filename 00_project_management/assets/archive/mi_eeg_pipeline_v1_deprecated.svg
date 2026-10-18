@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+<style>text{font-family:Arial,'Noto Sans CJK SC','Microsoft YaHei',sans-serif;fill:#183b63}.title{font-size:42px;font-weight:700}.h{font-size:24px;font-weight:700}.b{font-size:19px}.box{rx:18;ry:18;stroke-width:2}.arr{stroke:#2e7bcf;stroke-width:4;marker-end:url(#a)}</style><defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2e7bcf"/></marker></defs>
+<rect width="1600" height="1000" fill="#fff"/><text x="800" y="55" text-anchor="middle" class="title">MI-EEG 可视化 Pipeline（V1：已废弃）</text><text x="800" y="92" text-anchor="middle" class="h" fill="#d33e3e">保留用于回溯：旧版将“Epoch → 形成 Trial”画得不严谨</text>
+<g>
+<rect x="100" y="125" width="1400" height="70" class="box" fill="#e8f3fd" stroke="#8fc4ee"/><text x="135" y="170" class="h">1. 连续 EEG（原始信号）  [Channel, Continuous Time]</text>
+<line x1="800" y1="195" x2="800" y2="220" class="arr"/>
+<rect x="100" y="225" width="1400" height="70" class="box" fill="#e7f7ef" stroke="#8fcdb3"/><text x="135" y="270" class="h">2. 事件标记（Event Markers）</text>
+<line x1="800" y1="295" x2="800" y2="320" class="arr"/>
+<rect x="100" y="325" width="1400" height="80" class="box" fill="#f0e9fb" stroke="#b8a5e3"/><text x="135" y="365" class="h">3. 基础预处理：Band-pass / Notch / Resample / Artifact</text>
+<line x1="800" y1="405" x2="800" y2="430" class="arr"/>
+<rect x="100" y="435" width="1400" height="85" class="box" fill="#fff1dc" stroke="#e4b15c"/><text x="135" y="475" class="h">4. Epoch 切分：事件 → 时间窗</text><text x="135" y="505" class="b">例如 fs=250 Hz，4 s → 1000 个时间采样点</text>
+<line x1="800" y1="520" x2="800" y2="545" class="arr"/>
+<rect x="100" y="550" width="1400" height="85" class="box" fill="#fde8e8" stroke="#e47474"/><text x="135" y="592" class="h">5. 旧版写法：“形成单个 Trial”  ← 概念不严谨</text><text x="135" y="620" class="b" fill="#d33e3e">严格说：Trial 是实验试次；Epoch 是从 Trial 对应 EEG 中截出的片段，进入模型后通常作为 Sample。</text>
+<line x1="800" y1="635" x2="800" y2="660" class="arr"/>
+<rect x="100" y="665" width="1400" height="80" class="box" fill="#e7f7ef" stroke="#8fcdb3"/><text x="135" y="705" class="h">6. 堆叠数据集：X = [Sample/Trial, Channel, Time]</text><text x="135" y="733" class="b">例如 [288, 22, 1000]；标签 y = [288]</text>
+<line x1="800" y1="745" x2="800" y2="770" class="arr"/>
+<rect x="100" y="775" width="1400" height="80" class="box" fill="#e8f3fd" stroke="#8fc4ee"/><text x="135" y="815" class="h">7. 划分 Train / Validation / Test → 标准化 → Batch</text>
+<line x1="800" y1="855" x2="800" y2="880" class="arr"/>
+<rect x="100" y="885" width="1400" height="80" class="box" fill="#eef8f1" stroke="#8fcdb3"/><text x="135" y="925" class="h">8. Neural Network → 类别概率 → Prediction</text>
+</g></svg>
