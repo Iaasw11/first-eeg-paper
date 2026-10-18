@@ -49,14 +49,17 @@ A → A+a → A+a+b → 必要时 A+a+b+c
 
 ## 当前阶段
 
-**Phase 3：MI 全流程学习与组件化建模。**
+**阶段 3：MI 全流程学习（25 课；第 5–7 课待复习，第 8 课已讲未验收）。**
+
+- [阶段三 25 课课程表与真实进度](00_project_management/MI_Learning_Curriculum.md)
+- **分工：**用户以研究理解与实验审核为目标；AI 负责代码实现及可行的自动化，不要求用户独立编写 PyTorch。
 
 当前优先完成：
 
 - BCIC-IV-2a 从原始数据到最终评价的端到端流程；
 - MI 模型分类；
-- 近年论文按 Pipeline 位置重新拆解；
-- Component Library 与 Compatibility Matrix。
+- 完成六单元 25 课并通过能力验收；
+- **阶段 4** 开始 50 篇论文完整流程重构，**阶段 5–6** 再做组件库与兼容矩阵。
 
 暂存候选：
 - `SCLDGN`：跨被试 / DG 候选；
@@ -85,13 +88,14 @@ A → A+a → A+a+b → 必要时 A+a+b+c
 
 第一次进入仓库时：
 
-1. `00_project_management/research_progress.md`
-2. `00_project_management/roadmap.md`
-3. `00_project_management/research_glossary.md`
-4. `04_our_method/mi_pipeline_map.md`
-5. `04_our_method/component_library.md`
-6. `00_project_management/decision_log.md`
-7. `03_baselines/candidate_audit.md`
+1. `00_project_management/MI_Learning_Curriculum.md`
+2. `00_project_management/research_progress.md`
+3. `00_project_management/roadmap.md`
+4. `00_project_management/research_glossary.md`
+5. `04_our_method/mi_pipeline_map.md`
+6. `04_our_method/component_library.md`
+7. `00_project_management/decision_log.md`
+8. `03_baselines/candidate_audit.md`
 
 ## GitHub 知识沉淀规则
 
