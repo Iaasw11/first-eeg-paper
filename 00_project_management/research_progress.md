@@ -23,11 +23,11 @@
 
 - 第 1–4 课：已讲基础，第 3–4 课随堂题通过；暂不等同于系统验收。
 - **第 5 课 LR / Optimizer / Overfitting：已讲，用户回忆不稳，待复习。**
-- **第 6 课 Generalization / Cross-subject / Cross-session：已讲，待复习。**
+- **第 6 课 Generalization / Cross-subject / Cross-session：核心概念复习通过（2026-10-18，两道科研情景题均答对）；高级 Task Protocol 留待第 15 课。**
 - **第 7 课 Train / Validation / Test 循环：已讲，相关题答对，仍须整合复习。**
 - 第 8 课 EEGNet：第一遍已讲，尚未完成卷积核/特征图验收。
 - 第 9–25 课：尚未开始。
-- **下一次教学：复习 5 → 6 → 7，用新的 MI 场景验收，再回到第 8 课。**
+- **当前教学：第 5 课复习题通过、第 6 课核心概念复习通过；正在复习第 7 课 Train / Validation / Test，之后回到第 8 课 EEGNet。**
 - 分工：用户学科学判断，不要求独立写 PyTorch；AI 负责代码实现与可行的自动化，运行结果必须有证据。
 
 ## 当前进行
