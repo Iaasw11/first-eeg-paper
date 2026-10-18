@@ -1,125 +1,74 @@
-# Roadmap
+# Roadmap（用户确认的 0–10 阶段）
 
 ## 总目标
 
-完成第一篇真实、规范、可投稿的 EEG / BCI 论文，并在过程中建立能够复用到后续科研的 MI 方法论、代码和知识体系。
+完成第一篇真实、规范、可投稿的 MI / EEG 论文，保留可追溯的研究依据、实验配置、代码、失败记录和论文产出。
 
-## Phase 0 — 方向选择 ✅
+> **科研分工（2026-10-18 确认）**：用户负责理解研究问题、协议、模型与组件的科学作用、实验设计及结论审核。AI 主要负责文献整理、代码实现、数据处理、自动化脚本、代码审计、统计辅助与写作支持；任何实际复现必须有真实运行环境和证据。不要求用户独立编写 PyTorch。
 
-- 比较 MI、癫痫预测、精神疲劳/警觉度
-- 选择 MI 作为首篇论文训练场
+## 阶段 0 — 方向选择 ✅
 
-## Phase 1 — 文献地图 ✅ / 持续更新
+比较 MI、癫痫预测、精神疲劳 / 警觉度；首篇选择 MI。
 
-- 近两年高水平 MI 论文扫描
-- 记录 Dataset、Split、Preprocessing、Input、Backbone、Loss、Augmentation、Metric、Ablation、Gap
-- 识别主要研究线：跨被试、跨会话、少校准、轻量化、数据增强、Riemannian、预训练等
+## 阶段 1 — MI 文献扫描 ✅ 初步完成，持续维护
 
-## Phase 2 — Baseline 审计 ✅ / 暂停定型
+初步扫描约 50 篇近年论文，形成数据集、协议、方法模块和证据字段；此处是**扫描**，不是已完成逐篇完整流程重构。
 
-已审计代表候选：
-- EEG-DG
-- SCLDGN
-- MSD-DDA
-- MIRepNet
+## 阶段 2 — Baseline 第一轮审计 ✅
 
-结论：仅“顶刊 + GitHub”不足以确定 Baseline，需要先理解完整 Pipeline 与 Task Protocol。
+审计 EEG-DG、SCLDGN、MSD-DDA、MIRepNet 的开放资源、实现接口和协议风险；暂不锁死最终 Baseline。
 
-## Phase 3 — MI 全流程学习 ← 当前阶段
+## 阶段 3 — MI 全流程学习 ← 当前
 
-从 BCIC-IV-2a 开始，掌握：
+[25 课最新课程及实况](MI_Learning_Curriculum.md)：
 
-Raw EEG → Event → Trial → Split → Preprocessing → Alignment → Representation → Augmentation → Backbone → Adaptation/Loss → Head → Model Selection → Metric
+Raw EEG / Event → Trial → Split / Protocol → Preprocessing → Alignment → Representation → Augmentation → Backbone / Loss → Head → Validation / Test → Metrics。
 
-要求：不仅知道“怎么做”，还要知道：
-- 为什么需要这一步；
-- 输入是什么；
-- 输出是什么；
-- 有哪些替代方案；
-- 哪些方案使用了目标数据/标签；
-- 哪些组合可能冲突。
+- 第 1–4 课已讲基础，部分小测通过，但仍须情景复核；
+- **第 5–7 课已讲但用户回忆不稳，优先复习并重新验收；**
+- 第 8 课 EEGNet 已讲第一遍，尚未掌握 / 完成检查；
+- 第 9–25 课未开始。
+- 掌握标准：能**判断实验是否合理**，而非会写实现代码。
+- 第 24 课由 AI 实现可行的真实 EEGNet 流程，用户审核数据划分、配置、日志、模型和评价；没有实际运行就不得报告结果。
 
-## Phase 4 — Component Library
+## 阶段 4 — 50 篇论文流程重构 ⏳
 
-对近年论文做“横向拆解”，而非整篇照搬。
+用统一表格逐篇定位 Dataset、Protocol、Raw/Event、Trial、Split、Preprocessing、Alignment、Representation、Backbone、Adaptation/Loss、Head、Metric、Ablation 和代码复现证据。避免仅按标题或模型名称分类；标明论文原文、静态代码审计和我们的推断。
 
-构建：
-- Preprocessing components
-- Alignment components
-- Input representations
-- Augmentation components
-- Backbone families
-- Feature enhancement modules
-- Cross-subject/adaptation modules
-- Loss functions
-- Heads
-- Evaluation protocols
+## 阶段 5 — 组件库 ⏳
 
-每个组件记录接口与协议依赖。
+从阶段 4 提炼算法组件卡：作用、Pipeline 位置、输入/输出、监督信号、目标数据/标签可见性、适用协议、训练与推理行为、依赖、成本、证据来源。
 
-## Phase 5 — Compatibility Matrix
+## 阶段 6 — 组件兼容矩阵 ⏳
 
-把组件分成：
-- 可直接组合
-- 功能重叠
-- 协议互斥
-- 需要额外目标数据
-- 需要目标标签
+按**可直接组合、数据结构冲突、目标数据协议互斥、目标标签要求、功能重叠、成本过高**等维度审阅；保留冲突理由而不是强行拼装。
 
-## Phase 6 — 确定具体 Task Protocol
+## 阶段 7 — 重新选择 Baseline / SOTA ⏳
 
-先明确实验规则，再找 SOTA。
+先把拟研究的 Task Protocol 说清楚并冻结关键规则，再核对相同协议下的最新可复现强基线：
+- A0：经典易审计的基础模型；
+- A1：现代强 Backbone；
+- A2：任务协议下强方法 / SOTA 候选。
 
-例如：
-- Strict LOSO / DG
-- Offline cross-subject with unlabeled target statistics
-- UDA
-- Few-shot calibration
-- Cross-session
+**Task Protocol 在阶段 3 的第 15 课先学、阶段 4–6 比较时逐渐收敛，阶段 7 开始正式比较前落实；不另增一个项目阶段。**
 
-## Phase 7 — 重新选择 Baseline / SOTA
+## 阶段 8 — 模块筛选 ⏳
 
-建立三级 Baseline：
-- A0：经典、简单、方便插模块
-- A1：现代强 Backbone
-- A2：当前 Task Protocol 下最新强 SOTA
+固定训练 / 验证 / 测试规则；按照公平调参预算，利用 Validation 对 A→A+a 等单模块增量实验进行探索。记录失败，不用最终 Test 不断选模块。
 
-## Phase 8 — Exploratory Module Screening
+## 阶段 9 — 组合实验 ⏳
 
-固定训练/验证/测试规则，仅在 Validation 上快速筛：
+在已筛选的兼容组件上进行 A、A+a、A+b、A+a+b 及必要的更多组合；正式消融、敏感性、效率、多种子、多被试、多数据集和统计检查；独立测试数据留作最终确认。
 
-A → A+a_i → A+a+b_j → 必要时 A+a+b+c
+## 阶段 10 — 论文 ⏳
 
-失败模块也登记，不只保留成功结果。
+依据稳定的实验现象提出可验证的问题与机制解释，形成 Introduction、Related Work、Method、Experiments、Results、Discussion/Limitation、图表及可复现材料，审阅后投稿。不为涨点事后编造没有证据的故事。
 
-## Phase 9 — Confirmatory Experiments
+## 不变的研究原则
 
-冻结结构后：
-- 多随机种子
-- 多被试
-- 多数据集
-- 公平调参预算
-- Ablation
-- Sensitivity
-- Efficiency
-- Statistical testing
-
-## Phase 10 — Research Story
-
-顺序：
-
-发现稳定现象 → 提出机制解释 → 设计额外实验验证解释 → 形成 Research Problem / Gap / Contribution
-
-不是为了涨点事后编造无法验证的故事。
-
-## Phase 11 — Writing & Submission
-
-完成：
-- Introduction
-- Related Work
-- Method
-- Experiments
-- Results
-- Discussion / Limitation
-- Figures / Tables
-- Reproducibility materials
+1. 先确认任务协议，才能比较论文和模型 Accuracy。
+2. 模块选择以合法的 Validation 和透明调参预算为依据；最终 Test 独立评价。
+3. 区分离线 target-unlabeled / transductive 方法与真正 target-free 的在线泛化。
+4. 开源或论文报告的结果不等于经过我们实际复现。
+5. 学习进度分“已讲解、已理解、已通过迁移验收”；真实掌握由案例表现证明。
+6. 新增具体必备知识卡入库，仍要事先告知并由用户同意。
